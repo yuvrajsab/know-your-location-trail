@@ -31,14 +31,13 @@
 			crossorigin=""
 		></script>
 
-		<script
-			type="text/javascript"
-			src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js"
-		></script>
-
 		<style>
 			body {
 				font-family: 'Nunito', sans-serif;
+			}
+
+			#mapid {
+				height: 180px;
 			}
 		</style>
 
@@ -107,7 +106,7 @@
 						</p>
 					</div>
 					<div id="content" class="hidden">
-						<div id="mapid" class="h-48"></div>
+						<div id="mapid"></div>
 						<p class="text-xs italic mb-2">
 							Note: This only shows latitude and longitude(latlng)
 							because for exact address I'd need to implement some

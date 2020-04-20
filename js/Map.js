@@ -11,18 +11,19 @@ class Map {
 	}
 
 	init() {
-		this.mymap = L.map('mapid').setView([0, 0], 12);
-		this.marker = L.marker([0, 0]).addTo(this.mymap);
-		L.tileLayer('http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg', {
+		this.mymap = L.map('mapid').setView([0, 0], 13);
+
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution:
-				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-			maxZoom: 12,
+				'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		}).addTo(this.mymap);
+
+		this.marker = L.marker([0, 0]).addTo(this.mymap);
 	}
 
-	plot({ longitude, latitude }) {
-		this.mymap.setView([longitude, latitude], 12);
-		this.marker.setLatLng([longitude, latitude]);
+	plot({ latitude, longitude }) {
+		this.mymap.setView([latitude, longitude]);
+		this.marker.setLatLng([latitude, longitude]);
 	}
 }
 
