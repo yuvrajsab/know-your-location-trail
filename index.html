@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Know Your Location Trail</title>
+
+		<!-- Font -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Nunito:400,600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Styles -->
+		<link
+			href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+			integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+			crossorigin=""
+		/>
+
+		<!-- Scripts -->
+		<script
+			src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+			integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+			crossorigin=""
+		></script>
+
+		<script
+			type="text/javascript"
+			src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"
+		></script>
+
+		<style>
+			body {
+				font-family: 'Nunito', sans-serif;
+			}
+		</style>
+
+		<script src="./dist/bundle.js" defer></script>
+	</head>
+	<body class="bg-gray-100 antialised text-gray-900">
+		<!-- Background banner -->
+		<div
+			class="bg-blue-900 w-full h-64 fixed top-0"
+			style="z-index: -1;"
+		></div>
+
+		<!-- Github repo link icon -->
+		<a
+			href="#"
+			class="absolute top-0 right-0 p-2 m-3 inline-block text-white border-2 rounded-full hover:text-blue-900 hover:bg-white hover:border-transparent hover:shadow-sm"
+			title="Github"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="feather feather-github"
+			>
+				<path
+					d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+				></path>
+			</svg>
+		</a>
+
+		<main class="container mx-auto px-4">
+			<div class="bg-white md:w-2/3 mx-auto mt-20 rounded p-4 shadow-lg">
+				<h1 class="md:text-4xl text-2xl font-semibold mb-2">
+					Know Your Location Trail
+				</h1>
+				<div class="overflow-y-scroll" style="max-height: 22rem;">
+					<div id="message" class="font-bold"></div>
+					<div id="initial-shit">
+						<h3 class="text-lg font-bold">
+							So, Whats location trail?
+						</h3>
+						<p>
+							Location trail refers to a time stamped list of
+							locations of a device which can be found using the
+							GPS.
+						</p>
+						This is open source project to demonstate how the
+						location traling works, you can take a look at source
+						code by visiting repo hosted on github.
+						<p class="pt-2">
+							Press this
+							<button
+								type="button"
+								id="startBtn"
+								class="bg-blue-900 text-white font-bold py-1 px-2 rounded hover:bg-blue-800 hover:shadow"
+							>
+								Start
+							</button>
+							button to begin locating your location.
+						</p>
+					</div>
+					<div id="content" class="hidden">
+						<div id="mapid" class="h-48"></div>
+						<p class="text-xs italic mb-2">
+							Note: This only shows latitude and longitude(latlng)
+							because for exact address I'd need to implement some
+							third party api which will convert latlng to plain
+							address And i dont want to send your coordinates to
+							them. But if you want you can do it yourself online.
+							<br />
+							For that, one of many sites is
+							<a
+								class="text-blue-500"
+								href="https://www.findlatitudeandlongitude.com/find-address-from-latitude-and-longitude/"
+								>https://www.findlatitudeandlongitude.com/find-address-from-latitude-and-longitude/</a
+							>
+						</p>
+						<table class="table-auto w-full">
+							<tbody id="location-dump"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
