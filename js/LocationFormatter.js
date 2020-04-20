@@ -10,8 +10,8 @@ class LocationFormatter {
 		dumpLocation(`
 			<tr>
 				<td class="border px-3 py-1 text-sm">
-					Longitude ${coords.longitude}&deg;<br>
-					Latitude ${coords.latitude}&deg;
+					Latitude ${coords.latitude}&deg;<br>
+					Longitude ${coords.longitude}&deg;
 				</td>
 				<td class="border px-3 py-1 text-sm">
 					${LocationFormatter.timestampToDate(timestamp)}
