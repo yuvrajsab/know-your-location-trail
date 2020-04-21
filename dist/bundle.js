@@ -108,6 +108,9 @@ class LocationTracker {
 		this.locationManager.watchPosition(
 			position => this.processLocation(position),
 			error => this.handleError(error),
+			{
+				enableHighAccuracy: true,
+			},
 		);
 	}
 

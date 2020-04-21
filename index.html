@@ -104,16 +104,23 @@
 							</button>
 							button to begin locating your location.
 						</p>
+						<p class="text-xs text-gray-700 pt-3">
+							Note: It require GPS to track location, So make sure
+							your location services are turned on.
+						</p>
 					</div>
 					<div id="content" class="hidden">
 						<div id="mapid"></div>
-						<p class="text-xs italic mb-2">
+						<table class="table-auto w-full my-2">
+							<tbody id="location-dump"></tbody>
+						</table>
+						<p class="text-xs italic text-gray-700">
 							Note: This only shows latitude and longitude(latlng)
 							because for exact address I'd need to implement some
-							third party api which will convert latlng to plain
-							address And i dont want to send your coordinates to
-							them. But if you want you can do it yourself online.
-							<br />
+							proprietary third party api which will convert
+							latlng to plain address And i dont want to send your
+							coordinates to them because "I care about your
+							privacy!". But if you want you can do it yourself.
 							For that, one of many sites is
 							<a
 								class="text-blue-500"
@@ -121,9 +128,6 @@
 								>https://www.latlong.net/Show-Latitude-Longitude.html</a
 							>
 						</p>
-						<table class="table-auto w-full">
-							<tbody id="location-dump"></tbody>
-						</table>
 					</div>
 				</div>
 			</div>
