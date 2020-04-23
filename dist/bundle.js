@@ -2,6 +2,10 @@ function setMessage(message) {
 	document.querySelector('#message').innerHTML = message;
 }
 
+function clearMessage() {
+	document.querySelector('#message').innerHTML = '';
+}
+
 function dumpLocation(content) {
 	document
 		.querySelector('#location-dump')
@@ -105,6 +109,12 @@ class LocationTracker {
 	}
 
 	getLocation() {
+		setMessage(`
+			<p class="text-gray-700">
+				Please give permission to access your location.
+			</p>
+        `);
+
 		this.locationManager.watchPosition(
 			position => this.processLocation(position),
 			error => this.handleError(error),
@@ -112,6 +122,10 @@ class LocationTracker {
 	}
 
 	processLocation(position) {
+		clearMessage();
+
+		document.querySelector('#content').classList.remove('hidden');
+
 		LocationFormatter.formatDisplay(position);
 	}
 
@@ -121,7 +135,6 @@ class LocationTracker {
 }
 
 document.querySelector('#startBtn').onclick = () => {
-	document.querySelector('#content').classList.remove('hidden');
 	document.querySelector('#initial-shit').outerHTML = '';
 	LocationTracker.locate();
 };
